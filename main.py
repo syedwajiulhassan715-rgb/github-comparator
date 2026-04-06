@@ -75,7 +75,7 @@ def fetch_readme(url):
 
     try:
         response = requests.get(api_url, headers=headers, timeout=10)
-        #404 means repo exists bur has no readme
+        #404 means repo exists but has no readme
         if response.status_code == 404:
             return "NO_README"
         response.raise_for_status()
@@ -97,10 +97,10 @@ def fetch_readme(url):
     return content
 
 
-    #  send_to_claude(repo data):
+    #  send_to_ai(repo data):
     # Takes list of readme texts
     # Sends structured comparison prompt to Claude API
-    # Returns: Claude's raw response text
+    # Returns: Ai's raw response text
 
 def analyze_with_ai(repo_data):
     client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
